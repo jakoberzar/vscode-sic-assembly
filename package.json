@@ -1,7 +1,7 @@
 {
     "name": "sic-assembly",
     "displayName": "SIC Assembly",
-    "description": "An extension for SIC assembly",
+    "description": "SIC and SIC/XE assembly language support, including syntax highlighting and more.",
     "version": "0.0.1",
     "license": "MIT",
     "publisher": "jakob-erzar",
