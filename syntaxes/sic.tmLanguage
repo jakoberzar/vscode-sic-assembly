@@ -63,7 +63,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(A|X|L|PC|SW|CC|B|S|T|F|a|x|l|pc|sw|cc|b|s|t|f)\b</string>
+			<string>\b(A|X|L|PC|SW|CC|B|S|T|F)\b</string>
 			<key>name</key>
 			<string>support.type.asm</string>
 		</dict>
