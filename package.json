@@ -1,0 +1,32 @@
+{
+    "name": "sic-assembly",
+    "displayName": "SIC Assembly",
+    "description": "An extension for SIC assembly",
+    "version": "0.0.1",
+    "publisher": "jakob-erzar",
+    "engines": {
+        "vscode": "^1.17.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "sic",
+            "aliases": ["SIC Assembly", "sic"],
+            "extensions": [".asm", ".sic"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "sic",
+            "scopeName": "source.asm.sic",
+            "path": "./syntaxes/sic.tmLanguage"
+        }],
+        "configurationDefaults": {
+            "[sic]": {
+                "editor.insertSpaces": false,
+                "editor.tabSize": 8
+            }
+        }
+    }
+}

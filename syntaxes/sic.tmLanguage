@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>asm</string>
+		<string>s</string>
+		<string>sic</string>
+		<string>$C</string>
+	</array>
+	<key>name</key>
+	<string>SIC Assembly</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>match</key>
+			<string>[.].*$</string>
+			<key>name</key>
+			<string>comment.line</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(BYTE|WORD|FLOT|RESB|RESW|RESF|BASE|NOBASE|EQU|EXTDEF|EXTREF|LTORG|CSECT|USE)\b</string>
+			<key>name</key>
+			<string>support.type.asm</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>'</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.asm.sic</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>'</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.asm.sic</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.single.include.asm.sic</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(ADD|ADDF|ADDR|AND|CLEAR|COMP|COMPF|COMPR|DIV|DIVF|DIVR|FIX|FLOAT|HIO|J|JEQ|JGT|JLT|JSUB|LDA|LDB|LDCH|LDF|LDL|LDS|LDT|LDX|LPS|MUL|MULF|MULR|NORM|OR|RD|RMO|RSUB|SHIFTL|SHIFTR|SIO|SSK|STA|STB|STCH|STF|STI|STL|STS|STSW|STT|STX|SUB|SUBF|SUBR|SVC|TD|TIO|TIX|TIXR|WD)\b</string>
+			<key>name</key>
+			<string>keyword.mnemonic.asm.sic</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b-?[0-9]+\b</string>
+			<key>name</key>
+			<string>constant.numeric.dec</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(A|X|L|PC|SW|CC|B|S|T|F|a|x|l|pc|sw|cc|b|s|t|f)\b</string>
+			<key>name</key>
+			<string>support.type.asm</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>source.asm.sic</string>
+	<key>uuid</key>
+	<string>5075ff92-54a7-11e6-beb8-9e71128cae77</string>
+</dict>
+</plist>
