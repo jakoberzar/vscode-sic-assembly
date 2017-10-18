@@ -34,7 +34,13 @@
                 "editor.insertSpaces": false,
                 "editor.tabSize": 8
             }
-        }
+        },
+        "snippets": [
+            {
+                "language": "sic",
+                "path": "./snippets/sic.json"
+            }
+        ]
     },
     "bugs": {
         "url": "https://github.com/jakoberzar/vscode-sic-assembly/issues"
