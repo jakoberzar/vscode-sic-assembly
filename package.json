@@ -3,12 +3,19 @@
     "displayName": "SIC Assembly",
     "description": "An extension for SIC assembly",
     "version": "0.0.1",
+    "license": "MIT",
     "publisher": "jakob-erzar",
     "engines": {
         "vscode": "^1.17.0"
     },
     "categories": [
         "Languages"
+    ],
+    "keywords": [
+        "sic assembly",
+        "sic",
+        "sic/xe",
+        "assembly"
     ],
     "contributes": {
         "languages": [{
@@ -28,5 +35,14 @@
                 "editor.tabSize": 8
             }
         }
-    }
+    },
+    "bugs": {
+        "url": "https://github.com/jakoberzar/vscode-sic-assembly/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jakoberzar/vscode-sic-assembly.git"
+    },
+    "homepage": "https://github.com/jakoberzar/vscode-sic-assembly/blob/master/README.md"
+
 }
