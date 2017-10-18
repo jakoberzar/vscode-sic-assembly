@@ -27,6 +27,12 @@
                 "editor.insertSpaces": false,
                 "editor.tabSize": 8
             }
-        }
+        },
+        "snippets": [
+            {
+                "language": "sic",
+                "path": "./snippets/sic.json"
+            }
+        ]
     }
 }

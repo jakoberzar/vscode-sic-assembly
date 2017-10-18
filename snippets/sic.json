@@ -1,0 +1,356 @@
+[
+    {
+        "ADD m": {
+            "prefix": "ADD",
+            "body": "ADD\t${m}"
+        }
+    },
+    {
+        "ADDF m": {
+            "prefix": "ADDF",
+            "body": "ADDF\t${m}"
+        }
+    },
+    {
+        "ADDR r1,r2": {
+            "prefix": "ADDR",
+            "body": "ADDR\t${r1}, ${r2}"
+        }
+    },
+    {
+        "AND m": {
+            "prefix": "AND",
+            "body": "AND\t${m}"
+        }
+    },
+    {
+        "CLEAR r1": {
+            "prefix": "CLEAR",
+            "body": "CLEAR\t${r1}"
+        }
+    },
+    {
+        "COMP m": {
+            "prefix": "COMP",
+            "body": "COMP\t${m}"
+        }
+    },
+    {
+        "COMPF": {
+            "prefix": "COMPF",
+            "body": "COMPF"
+        }
+    },
+    {
+        "COMPR": {
+            "prefix": "COMPR",
+            "body": "COMPR"
+        }
+    },
+    {
+        "DIV": {
+            "prefix": "DIV",
+            "body": "DIV"
+        }
+    },
+    {
+        "DIVF": {
+            "prefix": "DIVF",
+            "body": "DIVF"
+        }
+    },
+    {
+        "DIVR r1,r2": {
+            "prefix": "DIVR",
+            "body": "DIVR\t${r1}, ${r2}"
+        }
+    },
+    {
+        "FIX": {
+            "prefix": "FIX",
+            "body": "FIX"
+        }
+    },
+    {
+        "FLOAT": {
+            "prefix": "FLOAT",
+            "body": "FLOAT"
+        }
+    },
+    {
+        "HIO": {
+            "prefix": "HIO",
+            "body": "HIO"
+        }
+    },
+    {
+        "J m": {
+            "prefix": "J",
+            "body": "J\t${m}"
+        }
+    },
+    {
+        "JEQ m": {
+            "prefix": "JEQ",
+            "body": "JEQ\t${m}"
+        }
+    },
+    {
+        "JGT m": {
+            "prefix": "JGT",
+            "body": "JGT\t${m}"
+        }
+    },
+    {
+        "JLT m": {
+            "prefix": "JLT",
+            "body": "JLT\t${m}"
+        }
+    },
+    {
+        "JSUB m": {
+            "prefix": "JSUB",
+            "body": "JSUB\t${m}"
+        }
+    },
+    {
+        "LDA m": {
+            "prefix": "LDA",
+            "body": "LDA\t${m}"
+        }
+    },
+    {
+        "LDB m": {
+            "prefix": "LDB",
+            "body": "LDB\t${m}"
+        }
+    },
+    {
+        "LDCH m": {
+            "prefix": "LDCH",
+            "body": "LDCH\t${m}"
+        }
+    },
+    {
+        "LDF m": {
+            "prefix": "LDF",
+            "body": "LDF\t${m}"
+        }
+    },
+    {
+        "LDL m": {
+            "prefix": "LDL",
+            "body": "LDL\t${m}"
+        }
+    },
+    {
+        "LDS m": {
+            "prefix": "LDS",
+            "body": "LDS\t${m}"
+        }
+    },
+    {
+        "LDT m": {
+            "prefix": "LDT",
+            "body": "LDT\t${m}"
+        }
+    },
+    {
+        "LDX m": {
+            "prefix": "LDX",
+            "body": "LDX\t${m}"
+        }
+    },
+    {
+        "LPS m": {
+            "prefix": "LPS",
+            "body": "LPS\t${m}"
+        }
+    },
+    {
+        "MUL m": {
+            "prefix": "MUL",
+            "body": "MUL\t${m}"
+        }
+    },
+    {
+        "MULF m": {
+            "prefix": "MULF",
+            "body": "MULF\t${m}"
+        }
+    },
+    {
+        "MULR r1,r2": {
+            "prefix": "MULR",
+            "body": "MULR\t${r1}, ${r2}"
+        }
+    },
+    {
+        "NORM": {
+            "prefix": "NORM",
+            "body": "NORM"
+        }
+    },
+    {
+        "OR m": {
+            "prefix": "OR",
+            "body": "OR\t${m}"
+        }
+    },
+    {
+        "RD m": {
+            "prefix": "RD",
+            "body": "RD\t${m}"
+        }
+    },
+    {
+        "RMO r1,r2": {
+            "prefix": "RMO",
+            "body": "RMO\t${r1}, ${r2}"
+        }
+    },
+    {
+        "RSUB": {
+            "prefix": "RSUB",
+            "body": "RSUB"
+        }
+    },
+    {
+        "SHIFTL r1,n": {
+            "prefix": "SHIFTL",
+            "body": "SHIFTL\t${r1}, ${n}"
+        }
+    },
+    {
+        "SHIFTR r2,n": {
+            "prefix": "SHIFTR",
+            "body": "SHIFTR\t${r2}, ${n}"
+        }
+    },
+    {
+        "SIO": {
+            "prefix": "SIO",
+            "body": "SIO"
+        }
+    },
+    {
+        "SSK m": {
+            "prefix": "SSK",
+            "body": "SSK\t${m}"
+        }
+    },
+    {
+        "STA m": {
+            "prefix": "STA",
+            "body": "STA\t${m}"
+        }
+    },
+    {
+        "STB m": {
+            "prefix": "STB",
+            "body": "STB\t${m}"
+        }
+    },
+    {
+        "STCH m": {
+            "prefix": "STCH",
+            "body": "STCH\t${m}"
+        }
+    },
+    {
+        "STF m": {
+            "prefix": "STF",
+            "body": "STF\t${m}"
+        }
+    },
+    {
+        "STI": {
+            "prefix": "STI",
+            "body": "STI"
+        }
+    },
+    {
+        "STL m": {
+            "prefix": "STL",
+            "body": "STL\t${m}"
+        }
+    },
+    {
+        "STS m": {
+            "prefix": "STS",
+            "body": "STS\t${m}"
+        }
+    },
+    {
+        "STSW m": {
+            "prefix": "STSW",
+            "body": "STSW\t${m}"
+        }
+    },
+    {
+        "STT m": {
+            "prefix": "STT",
+            "body": "STT\t${m}"
+        }
+    },
+    {
+        "STX m": {
+            "prefix": "STX",
+            "body": "STX\t${m}"
+        }
+    },
+    {
+        "SUB m": {
+            "prefix": "SUB",
+            "body": "SUB\t${m}"
+        }
+    },
+    {
+        "SUBF m": {
+            "prefix": "SUBF",
+            "body": "SUBF\t${m}"
+        }
+    },
+    {
+        "SUBR r1,r2": {
+            "prefix": "SUBR",
+            "body": "SUBR\t${r1}, ${r2}"
+        }
+    },
+    {
+        "SVC n": {
+            "prefix": "SVC",
+            "body": "SVC\t${n}"
+        }
+    },
+    {
+        "TD m": {
+            "prefix": "TD",
+            "body": "TD\t${m}"
+        }
+    },
+    {
+        "TIO": {
+            "prefix": "TIO",
+            "body": "TIO"
+        }
+    },
+    {
+        "TIX m": {
+            "prefix": "TIX",
+            "body": "TIX\t${m}"
+        }
+    },
+    {
+        "TIXR r1": {
+            "prefix": "TIXR",
+            "body": "TIXR\t${r1}"
+        }
+    },
+    {
+        "WD m": {
+            "prefix": "WD",
+            "body": "WD\t${m}"
+        }
+    }
+]
