@@ -4,15 +4,10 @@ This extension adds the support for the [SIC (Simplified Instructional Computer)
 
 ## Features
 
-- Syntax higlighting
+- Syntax highlighting
+- Snippets
 - Setting the default language indentation to 8 character long tabs
 
 ## Known Issues
 
-- Syntax higlighting is not yet finished. The whole extension is in a very early stage
-
-## Release Notes
-
-### 0.0.1
-
-Initial release, featuring simple syntax higlighting.
+- Syntax highlighting is not yet finished. Please report any issues you find on [GitHub](https://github.com/jakoberzar/vscode-sic-assembly/issues).
