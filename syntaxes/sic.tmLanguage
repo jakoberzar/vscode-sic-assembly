@@ -21,7 +21,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(BYTE|WORD|FLOT|RESB|RESW|RESF|BASE|NOBASE|EQU|EXTDEF|EXTREF|LTORG|CSECT|USE)\b</string>
+			<string>\b(BYTE|WORD|FLOT|RESB|RESW|RESF|BASE|NOBASE|EQU|EXTDEF|EXTREF|LTORG|CSECT|USE|START|END|ORG)\b</string>
 			<key>name</key>
 			<string>support.type.asm</string>
 		</dict>
