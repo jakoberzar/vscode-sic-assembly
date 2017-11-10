@@ -2,7 +2,7 @@
     "name": "sic-assembly",
     "displayName": "SIC Assembly",
     "description": "SIC and SIC/XE assembly language support, including syntax highlighting and snippets.",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "license": "MIT",
     "publisher": "jakob-erzar",
     "engines": {
@@ -21,7 +21,7 @@
         "languages": [{
             "id": "sic",
             "aliases": ["SIC Assembly", "sic"],
-            "extensions": [".asm", ".sic"],
+            "extensions": [".asm", ".sic", ".sic.asm"],
             "configuration": "./language-configuration.json"
         }],
         "grammars": [{
