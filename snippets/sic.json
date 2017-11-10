@@ -352,5 +352,11 @@
             "prefix": "WD",
             "body": "WD\t${1:m}"
         }
+    },
+    {
+        "halt": {
+            "prefix": "halt",
+            "body": "halt\tJ\thalt"
+        }
     }
 ]
