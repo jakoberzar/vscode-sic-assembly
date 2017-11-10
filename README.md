@@ -11,7 +11,7 @@ This extension adds the support for the [SIC (Simplified Instructional Computer)
 ## Screenshots
 Syntax highlighting on Dark+ theme.
 
-<img src="./images/syntax_highlighting.png" alt="Syntax highlighting example" style="width: 400px" width="400">
+![Syntah highlighting example](./images/syntax_highlighting.png)
 
 ## Known Issues
 
