@@ -3,10 +3,11 @@
 import { ExtensionContext, FormattingOptions, languages, Position, Range, TextDocument, TextEdit, TextLine, window } from 'vscode';
 import * as XRegExp from 'xregexp';
 
-const re = XRegExp.build('^(({{label}})\\s+({{mnemonic}})(\\s({{operands}}))?)?\\s*?({{comment}})?$', {
-    label: /\w*?/,
+/* (label? mnemonic operands?)? comment? */
+const re = XRegExp.build('^(({{label}})?\\s+({{mnemonic}})(\\s({{operands}}))?)?\\s*?({{comment}})?$', {
+    label: /\w+?/,
     mnemonic: /\+?(ADD|ADDF|ADDR|AND|CLEAR|COMP|COMPF|COMPR|DIV|DIVF|DIVR|FIX|FLOAT|HIO|J|JEQ|JGT|JLT|JSUB|LDA|LDB|LDCH|LDF|LDL|LDS|LDT|LDX|LPS|MUL|MULF|MULR|NORM|OR|RD|RMO|RSUB|SHIFTL|SHIFTR|SIO|SSK|STA|STB|STCH|STF|STI|STL|STS|STSW|STT|STX|SUB|SUBF|SUBR|SVC|TD|TIO|TIX|TIXR|WD|BYTE|WORD|FLOT|RESB|RESW|RESF|BASE|NOBASE|EQU|EXTDEF|EXTREF|LTORG|CSECT|USE|START|END|ORG)/,
-    operands: /.*?/,
+    operands: /.+?/,
     comment: /\..*?/,
 });
 
