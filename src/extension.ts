@@ -51,24 +51,37 @@ export function activate(context: ExtensionContext) {
 
             const tabCount = Math.floor(longestLabel / options.tabSize) + 1;
 
-            linesInfo.forEach((line) => {
+            linesInfo.forEach((line, i) => {
                 const lineNo = line.lineRef.lineNumber;
                 if (line.label) {
                     /* Lines with labels */
                     const mnemonicStart = line.lineRef.text.indexOf(line.mnemonic.text);
-                    const indentRange = lineRange(lineNo, line.label.len, mnemonicStart);
+                    const currentIndent = lineRange(lineNo, line.label.len, mnemonicStart);
 
                     const inTabCount = tabCount - Math.floor(line.label.len / options.tabSize);
 
-                    changes.push(TextEdit.replace(indentRange, '\t'.repeat(inTabCount)));
+                    changes.push(TextEdit.replace(currentIndent, '\t'.repeat(inTabCount)));
 
                 } else if (!line.label && !line.mnemonic && !line.operands) {
                     /* Comment only: match indentation with the following line. */
-                    // TODO
+                    const currentIndent = getIndentRange(line.lineRef);
+
+                    if (linesInfo[i + 1] && linesInfo[i + 1].lineRef.lineNumber === lineNo + 1) {
+                        /* Next line is not empty */
+                        const nextLine = linesInfo[i + 1];
+                        if (nextLine.label) {
+                            /* Delete indentation */
+                            changes.push(TextEdit.delete(currentIndent));
+                        } else if (nextLine.mnemonic) {
+                            /* Match indentation */
+                            const edit = TextEdit.replace(getIndentRange(line.lineRef), '\t'.repeat(tabCount));
+                            changes.push(edit);
+                        }
+                    }
 
                 } else {
-                    const indentRange = lineRange(lineNo, 0, line.lineRef.firstNonWhitespaceCharacterIndex);
-                    changes.push(TextEdit.replace(indentRange, '\t'.repeat(tabCount)));
+                    const currentIndent = lineRange(lineNo, 0, line.lineRef.firstNonWhitespaceCharacterIndex);
+                    changes.push(TextEdit.replace(currentIndent, '\t'.repeat(tabCount)));
                 }
             });
 
@@ -104,7 +117,7 @@ function getLineInfo(document: TextDocument, lineNo: number): LineInfo {
             comment: matchToTokenInfo(match.comment),
         };
     } else {
-        throw Error('Wrong syntax at line ' + lineNo);
+        throw Error('Wrong syntax at line ' + (line.lineNumber + 1));
     }
 }
 
@@ -114,6 +127,14 @@ function matchToTokenInfo(s: string): TokenInfo | null {
     } else {
         return null;
     }
+}
+
+/**
+ * Returns the Range of current indentation for a TextLine [0, line.firstNonWhitespaceCharacterIndex)
+ * @param line
+ */
+function getIndentRange(line: TextLine): Range {
+    return line.range.with({ end: new Position(line.lineNumber, line.firstNonWhitespaceCharacterIndex) });
 }
 
 function lineRange(line: number, start: number, end: number): Range {

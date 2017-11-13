@@ -69,6 +69,7 @@
         "postinstall": "node ./node_modules/vscode/bin/install && tsc"
     },
     "devDependencies": {
+        "@types/node": "^8.0.51",
         "typescript": "^2.6.1",
         "vscode": "^1.1.6",
         "xregexp": "^3.2.0"
