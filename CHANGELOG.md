@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.2.0] - 2017-11-20
+### Added
+- Code formatting
+
 ## [0.1.2] - 2017-11-10
 ### Added
 - Snippet for a halt loop
