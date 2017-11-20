@@ -11,6 +11,10 @@
     "categories": [
         "Languages"
     ],
+    "activationEvents": [
+        "onLanguage:sic"
+    ],
+    "main": "./out/src/extension",
     "keywords": [
         "sic assembly",
         "sic",
@@ -18,17 +22,28 @@
         "assembly"
     ],
     "contributes": {
-        "languages": [{
-            "id": "sic",
-            "aliases": ["SIC Assembly", "sic"],
-            "extensions": [".asm", ".sic", ".sic.asm"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "sic",
-            "scopeName": "source.asm.sic",
-            "path": "./syntaxes/sic.tmLanguage"
-        }],
+        "languages": [
+            {
+                "id": "sic",
+                "aliases": [
+                    "SIC Assembly",
+                    "sic"
+                ],
+                "extensions": [
+                    ".asm",
+                    ".sic",
+                    ".sic.asm"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "sic",
+                "scopeName": "source.asm.sic",
+                "path": "./syntaxes/sic.tmLanguage"
+            }
+        ],
         "configurationDefaults": {
             "[sic]": {
                 "editor.insertSpaces": false,
@@ -49,6 +64,14 @@
         "type": "git",
         "url": "https://github.com/jakoberzar/vscode-sic-assembly.git"
     },
-    "homepage": "https://github.com/jakoberzar/vscode-sic-assembly/blob/master/README.md"
-
+    "homepage": "https://github.com/jakoberzar/vscode-sic-assembly/blob/master/README.md",
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install && tsc"
+    },
+    "devDependencies": {
+        "@types/node": "^8.0.51",
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "xregexp": "^3.2.0"
+    }
 }
