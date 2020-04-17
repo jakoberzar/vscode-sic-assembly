@@ -2,7 +2,7 @@
     "name": "sic-assembly",
     "displayName": "SIC Assembly",
     "description": "SIC and SIC/XE assembly language support, including syntax highlighting, code formatting and snippets.",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "license": "MIT",
     "publisher": "jakob-erzar",
     "engines": {
