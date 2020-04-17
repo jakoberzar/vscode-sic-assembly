@@ -2,14 +2,14 @@
     "name": "sic-assembly",
     "displayName": "SIC Assembly",
     "description": "SIC and SIC/XE assembly language support, including syntax highlighting, code formatting and snippets.",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "license": "MIT",
     "publisher": "jakob-erzar",
     "engines": {
-        "vscode": "^1.17.0"
+        "vscode": "^1.36.0"
     },
     "categories": [
-        "Languages"
+        "Programming Languages"
     ],
     "activationEvents": [
         "onLanguage:sic"
@@ -72,8 +72,8 @@
         "xregexp": "^3.2.0"
     },
     "devDependencies": {
-        "@types/node": "^8.0.51",
-        "typescript": "^2.6.1",
-        "vscode": "^1.1.6"
+        "@types/node": "^12.0.0",
+        "typescript": "^3.8.0",
+        "vscode": "^1.1.36"
     }
 }

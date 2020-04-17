@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.2.1] - 2020-04-17
+### Changed
+- Improved syntax highlighting
+- Updated dependencies
+
 ## [0.2.0] - 2017-11-20
 ### Added
 - Code formatting

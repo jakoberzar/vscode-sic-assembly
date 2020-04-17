@@ -13,7 +13,7 @@ This extension adds the support for the [SIC (Simplified Instructional Computer)
 The Format Document action automatically aligns the columns in your SIC code, so there's enough space for labels, mnemonics and operands.
 
 ## Screenshots
-Syntax highlighting on Dark+ theme.
+Syntax highlighting on the [Material Theme]([https://link](https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme)).
 
 ![Syntax highlighting example](./images/syntax_highlighting.png)
 
