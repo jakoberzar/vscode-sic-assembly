@@ -27,7 +27,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>'</string>
+			<string>(X|C)?'</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -47,13 +47,13 @@
 				</dict>
 			</dict>
 			<key>name</key>
-			<string>string.quoted.single.include.asm.sic</string>
+			<string>string.quoted.single.asm.sic</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>\b(ADD|ADDF|ADDR|AND|CLEAR|COMP|COMPF|COMPR|DIV|DIVF|DIVR|FIX|FLOAT|HIO|J|JEQ|JGT|JLT|JSUB|LDA|LDB|LDCH|LDF|LDL|LDS|LDT|LDX|LPS|MUL|MULF|MULR|NORM|OR|RD|RMO|RSUB|SHIFTL|SHIFTR|SIO|SSK|STA|STB|STCH|STF|STI|STL|STS|STSW|STT|STX|SUB|SUBF|SUBR|SVC|TD|TIO|TIX|TIXR|WD)\b</string>
 			<key>name</key>
-			<string>keyword.mnemonic.asm.sic</string>
+			<string>keyword.other.mnemonic.asm.sic</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -63,9 +63,39 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(A|X|L|PC|SW|CC|B|S|T|F)\b</string>
+			<string>\b0x[0-9a-fA-F]+\b</string>
 			<key>name</key>
-			<string>support.type.asm</string>
+			<string>constant.numeric.hex</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b0b[01]+\b</string>
+			<key>name</key>
+			<string>constant.numeric.bin</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b0o[0-7]+\b</string>
+			<key>name</key>
+			<string>constant.numeric.oct</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(A|X|L|PC|SW|CC|B|S|T|F)(?=[^'])\b</string>
+			<key>name</key>
+			<string>constant.language.registers.asm.sic</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b\w+\b</string>
+			<key>name</key>
+			<string>variable.other.asm.sic</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>=|#|\+|@|-</string>
+			<key>name</key>
+			<string>keyword.operator.asm.sic</string>
 		</dict>
 	</array>
 	<key>scopeName</key>
