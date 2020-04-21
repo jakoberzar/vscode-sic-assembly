@@ -2,7 +2,7 @@
     "name": "sic-assembly",
     "displayName": "SIC Assembly",
     "description": "SIC and SIC/XE assembly language support, including syntax highlighting, code formatting and snippets.",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "license": "MIT",
     "publisher": "jakob-erzar",
     "engines": {
@@ -66,14 +66,18 @@
     },
     "homepage": "https://github.com/jakoberzar/vscode-sic-assembly/blob/master/README.md",
     "scripts": {
-        "postinstall": "node ./node_modules/vscode/bin/install && tsc"
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "lint": "tslint -p ./",
+        "watch": "tsc -watch -p ./"
     },
     "dependencies": {
-        "xregexp": "^3.2.0"
+        "xregexp": "^4.3.0"
     },
     "devDependencies": {
         "@types/node": "^12.0.0",
+        "tslint": "^6.1.1",
         "typescript": "^3.8.0",
-        "vscode": "^1.1.36"
+        "@types/vscode": "^1.36.0"
     }
 }
