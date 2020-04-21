@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.2.2] - 2020-04-21
+- Fixed snippets
+- Updated dependencies
+
 ## [0.2.1] - 2020-04-17
 ### Changed
 - Improved syntax highlighting
