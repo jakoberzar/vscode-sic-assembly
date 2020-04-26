@@ -1,12 +1,12 @@
 {
     "name": "sic-assembly",
     "displayName": "SIC Assembly",
-    "description": "SIC and SIC/XE assembly language support, including syntax highlighting, code formatting and snippets.",
-    "version": "0.2.2",
+    "description": "SIC and SIC/XE assembly language support, including syntax highlighting, code completion, jump to definition and code formatting.",
+    "version": "0.3.0",
     "license": "MIT",
     "publisher": "jakob-erzar",
     "engines": {
-        "vscode": "^1.36.0"
+        "vscode": "^1.42.0"
     },
     "categories": [
         "Programming Languages"
@@ -78,6 +78,6 @@
         "@types/node": "^12.0.0",
         "tslint": "^6.1.1",
         "typescript": "^3.8.0",
-        "@types/vscode": "^1.36.0"
+        "@types/vscode": "^1.42.0"
     }
 }
