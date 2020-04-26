@@ -127,8 +127,6 @@ function createFormat3Instrs(): Instruction[] {
         };
     });
 
-    console.log(format3);
-
     return format3;
 }
 

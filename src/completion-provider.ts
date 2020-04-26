@@ -61,14 +61,8 @@ export class SicCompletionItemProvider implements CompletionItemProvider {
 
     provideCompletionItems(document: TextDocument, position: Position) {
         const line = document.lineAt(position);
-        // Old instr found
-        // const words = this.splitByWhitespace(line.text);
-        // const instrFoundOld = words.find(word => this.mnemonics.includes(word));
 
-        const lineParsed = this.parse(this.lex(line.text));
-        console.log('line parsed', lineParsed);
-
-        // New instr found
+        // Instr found
         const tokens = this.lex(document.getText());
         const lineTokens = tokens.filter(token => token.location.line === position.line);
         const instrFound = lineTokens.find(token => token.type === TokenType.Mnemonic);
