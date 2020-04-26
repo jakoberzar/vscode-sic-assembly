@@ -30,4 +30,12 @@ function getAssemblyRegisters(): Register[] {
     ]
 }
 
+function getRelativeRegisters(): Register[] {
+    return [
+        { type: Registers.X, label: 'X' },
+        { type: Registers.B, label: 'B' },
+    ];
+}
+
 export const assemblyRegisters = getAssemblyRegisters();
+export const relativeRegisters = getRelativeRegisters();

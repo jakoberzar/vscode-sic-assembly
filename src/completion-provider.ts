@@ -5,12 +5,16 @@ import { Token, TokenType } from './parser/types/tokens';
 import { Parser } from './parser/parser';
 import { Stmt } from './parser/types/statement';
 import { LabelAnalysis } from './parser/analysis/labels';
-import { assemblyRegisters } from './parser/types/registers';
+import { assemblyRegisters, relativeRegisters } from './parser/types/registers';
+import { directives } from './parser/types/directives';
 
 export class SicCompletionItemProvider implements CompletionItemProvider {
     instructionSuggestions: CompletionItem[];
+    directiveSuggestions: CompletionItem[];
+    instrDirSuggestions: CompletionItem[];
     oneRegisterSuggestions: CompletionItem[];
     twoRegisterSuggestions: CompletionItem[];
+    relativeRegisterSuggestions: CompletionItem[];
     mnemonics: string[];
 
     constructor() {
@@ -33,8 +37,14 @@ export class SicCompletionItemProvider implements CompletionItemProvider {
             return item;
         });
 
+        this.directiveSuggestions = directives.map(dir => {
+            return new CompletionItem(dir.label, CompletionItemKind.Keyword);
+        })
+
+        this.instrDirSuggestions = this.instructionSuggestions.concat(this.directiveSuggestions);
+
         this.oneRegisterSuggestions = assemblyRegisters.map(reg => {
-            return new CompletionItem(reg.label, CompletionItemKind.Keyword);
+            return new CompletionItem(reg.label, CompletionItemKind.Constant);
         });
 
         this.twoRegisterSuggestions = assemblyRegisters.map(reg => {
@@ -43,6 +53,10 @@ export class SicCompletionItemProvider implements CompletionItemProvider {
             item.command = { command: 'editor.action.triggerSuggest', title: 'Re-trigger completions for operands' };
             return item;
         })
+
+        this.relativeRegisterSuggestions = relativeRegisters.map(reg => {
+            return new CompletionItem(reg.label, CompletionItemKind.Constant);
+        });
     }
 
     provideCompletionItems(document: TextDocument, position: Position) {
@@ -51,10 +65,14 @@ export class SicCompletionItemProvider implements CompletionItemProvider {
         // const words = this.splitByWhitespace(line.text);
         // const instrFoundOld = words.find(word => this.mnemonics.includes(word));
 
+        const lineParsed = this.parse(this.lex(line.text));
+        console.log('line parsed', lineParsed);
+
         // New instr found
         const tokens = this.lex(document.getText());
         const lineTokens = tokens.filter(token => token.location.line === position.line + 1);
         const instrFound = lineTokens.find(token => token.type === TokenType.Mnemonic);
+        const dirFound = lineTokens.find(token => token.type === TokenType.Directive);
 
         // Get labels
         const stmts = this.parse(tokens);
@@ -63,31 +81,32 @@ export class SicCompletionItemProvider implements CompletionItemProvider {
         // Check if instructions suggestions should be shown
         const tillPosition = line.text.substring(0, position.character);
         const rightAfterInstr = instrFound && tillPosition.endsWith(instrFound.lexeme);
+        const rightAfterDir = dirFound && tillPosition.endsWith(dirFound.lexeme);
 
         let suggestions = [];
         if (instrFound && !rightAfterInstr) {
             const operandSignature = instrFound.value.operands;
+            const afterComma = lineTokens.some(token => token.type === TokenType.Comma);
             if (operandSignature === 'm') {
-                suggestions = this.getLabelSuggestions(labels.data, 'data');
+                suggestions = (afterComma
+                    ? this.relativeRegisterSuggestions
+                    : this.getLabelSuggestions(labels.data, 'data')
+                );
             } else if (operandSignature === 't') {
                 suggestions = this.getLabelSuggestions(labels.code, 'code');
             } else if (operandSignature === 'r1') {
                 suggestions = this.oneRegisterSuggestions;
             } else if (operandSignature === 'r1, r2') {
-                const afterComma = lineTokens.some(token => token.type === TokenType.Comma);
-                if (afterComma) {
-                    suggestions = this.oneRegisterSuggestions;
-                } else {
-                    suggestions = this.twoRegisterSuggestions;
-                }
+                suggestions = afterComma ? this.oneRegisterSuggestions : this.twoRegisterSuggestions;
             } else if (operandSignature === 'r1, n') {
-                const afterComma = lineTokens.some(token => token.type === TokenType.Comma);
                 if (!afterComma) {
                     suggestions = this.oneRegisterSuggestions;
                 }
             }
+        } else if (dirFound && !rightAfterDir) {
+            suggestions = [];
         } else {
-            suggestions = this.instructionSuggestions;
+            suggestions = this.instrDirSuggestions;
         }
 
         return suggestions;

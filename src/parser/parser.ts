@@ -8,6 +8,7 @@ import { Literal } from './types/literal';
 import { ByteLiteral } from './types/byteliteral';
 import { RegisterParser } from './types/register-parser';
 import { ErrorStmt } from './types/error-statement';
+import { OperandExpr } from './types/operand-expr';
 
 export class Parser {
     current: number;
@@ -20,7 +21,7 @@ export class Parser {
 
     parse(): Stmt[] {
         // Skip starting new lines
-        while (!this.isAtEnd() && this.match(TokenType.NewLine)) {
+        while (this.match(TokenType.NewLine)) {
             this.advance();
         }
         return this.parseStmts();
@@ -67,7 +68,7 @@ export class Parser {
             label = this.parseLabel();
         }
 
-        if (this.match(TokenType.NewLine)) {
+        while (this.match(TokenType.NewLine)) {
             this.advance();
         }
 
@@ -76,7 +77,7 @@ export class Parser {
         const operands = this.parseOperands();
 
         let stmt = null;
-        if (opdir === null || operands === null) {
+        if (opdir === null || opdir.requiresOperands() && operands === null) {
             stmt = new ErrorStmt(label, opdir, operands);
         } else {
             stmt = new Stmt(label, opdir, operands);
@@ -151,12 +152,14 @@ export class Parser {
         let val = null;
         if (this.match(TokenType.Symbol)) {
             val = this.parseLabel();
-        } else if (this.match(TokenType.Literal)) {
+        } else if (this.match(TokenType.Literal) || this.match(TokenType.Minus)) {
             val = this.parseLiteral();
         } else if (this.match(TokenType.ByteLiteral)) {
             val = this.parseByteLiteral();
         } else if (this.match(TokenType.Register)) {
             val = this.parseRegister();
+        } else {
+            val = this.parseOperandExpr();
         }
 
         let operand = null;
@@ -168,8 +171,13 @@ export class Parser {
     }
 
     parseLiteral(): Literal {
+        let multiplier = 1;
+        if (this.match(TokenType.Minus)) {
+            multiplier = -1;
+            this.advance();
+        }
         const token = this.advance();
-        const literal = new Literal(token.value, token.location);
+        const literal = new Literal(token.value * multiplier, token.location);
         return literal;
     }
 
@@ -183,6 +191,36 @@ export class Parser {
         const token = this.advance();
         const register = new RegisterParser(token.value, token.location);
         return register;
+    }
+
+    /**
+     * TODO: Improve support for operand exprs :)
+     */
+    parseOperandExpr(): OperandExpr {
+        if (this.match(TokenType.Star)) {
+            const token = this.advance();
+            return new OperandExpr(token.location);
+        }
+
+        if (this.match(TokenType.Symbol)) {
+            const symbolToken = this.advance();
+
+            // Operator following the symbol... Just parse it and return
+            if (
+                this.match(TokenType.Plus)
+                || this.match(TokenType.Minus)
+                || this.match(TokenType.Star)
+                || this.match(TokenType.Slash)
+            ) {
+                const operatorToken = this.advance();
+                const symbolToken2 = this.advance();
+                return new OperandExpr(symbolToken2.location);
+            }
+
+            return new OperandExpr(symbolToken.location);
+        }
+
+        return null;
     }
 
 }

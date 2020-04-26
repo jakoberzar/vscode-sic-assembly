@@ -100,6 +100,7 @@ function createFormat3Instrs(): Instruction[] {
         { mnemonic: 'DIVF', operands: 'm', effect: 'F <- (F) / (m..m+5)' },
         { mnemonic: 'LDF', operands: 'm', effect: 'F <- (m..m+5)' },
         { mnemonic: 'MULF', operands: 'm', effect: 'F <- (F) * (m..m+5)' },
+        { mnemonic: 'STF', operands: 'm', effect: '(m..m+5) <- (F)' },
         { mnemonic: 'SUBF', operands: 'm', effect: 'F <- (F) - (m..m+5)' },
     ];
 

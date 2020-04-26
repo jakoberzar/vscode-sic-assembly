@@ -7,6 +7,10 @@ export class Directive {
         this.label = label;
         this.location = location;
     }
+
+    requiresOperands() {
+        return this.label !== 'LTORG';
+    }
 }
 
 function getDirectives(): Directive[] {
@@ -19,6 +23,8 @@ function getDirectives(): Directive[] {
         new Directive('START'),
         new Directive('END'),
         new Directive('LTORG'),
+        new Directive('EXTDEF'),
+        new Directive('EXTREF'),
     ]
 }
 

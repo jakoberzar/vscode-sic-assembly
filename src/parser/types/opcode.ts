@@ -8,4 +8,8 @@ export class Opcode {
         this.instr = instr;
         this.location = location;
     }
+
+    requiresOperands() {
+        return this.instr.operands !== null;
+    }
 }
