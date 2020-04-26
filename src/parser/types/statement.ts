@@ -13,4 +13,19 @@ export class Stmt {
         this.op = op;
         this.operands = operands;
     }
+
+    toString(): string {
+        let str = '';
+        if (this.label) {
+            str += this.label.toString() + '\t';
+        }
+
+        str += this.op.toString();
+
+        if (this.op.requiresOperands()) {
+            str += '\t' + this.operands.map(op => op.toString()).join(', ');
+        }
+
+        return str;
+    }
 }

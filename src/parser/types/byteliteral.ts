@@ -7,4 +7,8 @@ export class ByteLiteral {
         this.value = value;
         this.location = location;
     }
+
+    toString(): string {
+        return `C'${this.value}'`;
+    }
 }

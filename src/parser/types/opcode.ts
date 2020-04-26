@@ -9,7 +9,11 @@ export class Opcode {
         this.location = location;
     }
 
-    requiresOperands() {
+    requiresOperands(): boolean {
         return this.instr.operands !== null;
+    }
+
+    toString(): string {
+        return this.instr.mnemonic;
     }
 }

@@ -8,4 +8,8 @@ export class RegisterParser {
         this.reg = reg;
         this.location = location;
     }
+
+    toString(): string {
+        return this.reg.label;
+    }
 }

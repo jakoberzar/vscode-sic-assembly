@@ -7,4 +7,8 @@ export class Label {
         this.label = label;
         this.location = location;
     }
+
+    toString(): string {
+        return this.label;
+    }
 }

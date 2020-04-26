@@ -5,4 +5,8 @@ export class OperandExpr {
     constructor(location) {
         this.location = location;
     }
+
+    toString(): string {
+        return '<expr>';
+    }
 }

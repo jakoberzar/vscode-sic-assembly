@@ -6,4 +6,8 @@ export class Literal {
     constructor(value, location: Location) {
         this.value = value;
     }
+
+    toString(): string {
+        return '0x' + this.value.toString(16);
+    }
 }

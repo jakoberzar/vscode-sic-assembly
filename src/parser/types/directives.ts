@@ -8,8 +8,12 @@ export class Directive {
         this.location = location;
     }
 
-    requiresOperands() {
+    requiresOperands(): boolean {
         return this.label !== 'LTORG';
+    }
+
+    toString(): string {
+        return this.label;
     }
 }
 
