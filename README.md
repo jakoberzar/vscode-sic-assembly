@@ -5,17 +5,27 @@ This extension adds the support for the [SIC (Simplified Instructional Computer)
 ## Features
 
 - Syntax highlighting
-- Snippets
+- Code completion
+- Go to definition
+- Find all references
+- Document symbol definitions
+- Hover (mnemonics and symbols)
 - Code formatting
 - Setting the default language indentation to 8 character long tabs
+- Snippets
 
 ### Code formatting
 The Format Document action automatically aligns the columns in your SIC code, so there's enough space for labels, mnemonics and operands.
 
 ## Screenshots
-Syntax highlighting on the [Material Theme]([https://link](https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme)).
+- Feature demo
 
-![Syntax highlighting example](./images/syntax_highlighting.png)
+    ![Feature demo](./images/sic-ext-demo.gif)
+
+
+- Syntax highlighting on the [Material Theme]([https://link](https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme)).
+
+    ![Syntax highlighting example](./images/syntax_highlighting.png)
 
 ## Known Issues
 

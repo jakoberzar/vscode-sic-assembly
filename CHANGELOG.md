@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.3.0] - 2020-04-26
+### Added
+- **Code completion** support
+- **Go to definition** support
+- Document symbols support (list of all symbol definitions in a document)
+- Find all references support
+- Hover support (useful for mnemonics)
+
+### Changed
+- Removed snippets for instructions (as they are now replaced by code completion support)
+- Raised vscode dependency (v1.42.0 or higher)
+- Small fixes for syntax highlighting
+
 ## [0.2.2] - 2020-04-21
 - Fixed snippets
 - Updated dependencies
