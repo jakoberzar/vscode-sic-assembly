@@ -70,7 +70,7 @@ export class SicCompletionItemProvider implements CompletionItemProvider {
 
         // New instr found
         const tokens = this.lex(document.getText());
-        const lineTokens = tokens.filter(token => token.location.line === position.line + 1);
+        const lineTokens = tokens.filter(token => token.location.line === position.line);
         const instrFound = lineTokens.find(token => token.type === TokenType.Mnemonic);
         const dirFound = lineTokens.find(token => token.type === TokenType.Directive);
 

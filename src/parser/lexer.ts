@@ -11,8 +11,8 @@ export class Lexer {
 
     constructor(private source: string) {
         this.tokens = [];
-        this.line = 1;
-        this.column = 1;
+        this.line = 0;
+        this.column = 0;
         this.current = 0;
     }
 
@@ -80,7 +80,7 @@ export class Lexer {
         this.column++;
         if (char === '\n') {
             this.line++;
-            this.column = 1;
+            this.column = 0;
         }
         return char;
     }
