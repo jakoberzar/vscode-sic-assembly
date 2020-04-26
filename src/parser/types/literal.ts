@@ -8,6 +8,6 @@ export class Literal {
     }
 
     toString(): string {
-        return '0x' + this.value.toString(16);
+        return '0x' + this.value.toString(16).toUpperCase();
     }
 }

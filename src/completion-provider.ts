@@ -28,10 +28,11 @@ export class SicCompletionItemProvider implements CompletionItemProvider {
             item.documentation = instr.effect;
             item.commitCharacters = ['\t'];
             item.kind = CompletionItemKind.Method;
-            item.insertText = `${instr.mnemonic}\t`;
+            item.insertText = `${instr.mnemonic}`;
             if (instr.operands) {
                 item.label = instr.mnemonic + ' ' + instr.operands;
                 item.detail = instr.mnemonic + ' ' + instr.operands;
+                item.insertText += '\t';
                 item.command = { command: 'editor.action.triggerSuggest', title: 'Re-trigger completions for operands' };
             }
             return item;
